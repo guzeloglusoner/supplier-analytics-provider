@@ -1,3 +1,5 @@
+SET 'auto.offset.reset'='earliest';
+
 CREATE STREAM EVENTS WITH (
     kafka_topic = 'dbserver1.public.MY_TABLE',
     value_format = 'avro'
@@ -33,8 +35,11 @@ CREATE STREAM REVIEW_EVENTS AS
     EXTRACTJSONFIELD(after -> data, '$.orderStationModel') AS ORDER_STATION_MODEL,
     EXTRACTJSONFIELD(after -> data, '$.context_traits_uid') AS CONTEXT_TRAITS_UID,
     EXTRACTJSONFIELD(after -> data, '$.review_value_speed') AS REVIEW_VALUE_SPEED,
+    EXTRACTJSONFIELD(after -> data, '$.review_value_service') AS REVIEW_VALUE_SERVICE,
     EXTRACTJSONFIELD(after -> data, '$.context_traits_persona') AS CONTEXT_TRAITS_PERSONA,
-    EXTRACTJSONFIELD(after -> data, '$.orderStationManufacterer') AS ORDER_STATION_MANUFACTURER
+    EXTRACTJSONFIELD(after -> data, '$.orderStationManufacterer') AS ORDER_STATION_MANUFACTURER,
+    EXTRACTJSONFIELD(after -> data, '$.review_value_communication') AS REVIEW_VALUE_COMMUNICATION,
+    EXTRACTJSONFIELD(after -> data, '$.review_value_print_quality') AS REVIEW_VALUE_PRINT_QUALITY
     FROM EVENTS_EXPLODED
     WHERE EVENT_NAME =  'node/review/created' OR EVENT_NAME =  'node/review/updated' OR EVENT_NAME =  'node/review/deleted';
 
