@@ -1,0 +1,7 @@
+Creation of Postgres Source Connector:
+
+curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @register-postgres.json
+
+Creation of BigQuery Sink Connector:
+
+curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @register-bigquery-sink.json

@@ -1,0 +1,14 @@
+{
+  "name": "supplier-connector",
+  "config": {
+      "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+      "tasks.max": "1",
+      "database.hostname": "db",
+      "database.port": "5432",
+      "database.user": "postgres",
+      "database.password": "admin",
+      "database.dbname" : "3dHubs",
+      "database.server.name": "dbserver1",
+      "schema.include.list": "public"
+      }
+ }
