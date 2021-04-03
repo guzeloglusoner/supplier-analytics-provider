@@ -7,7 +7,7 @@
       "database.port": "5432",
       "database.user": "postgres",
       "database.password": "admin",
-      "database.dbname" : "3dHubs",
+      "database.dbname" : "postgres",
       "database.server.name": "dbserver1",
       "schema.include.list": "public"
       }
